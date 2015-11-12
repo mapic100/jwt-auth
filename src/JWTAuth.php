@@ -200,6 +200,7 @@ class JWTAuth
      */
     protected function parseAuthHeader($header = 'authorization', $method = 'bearer')
     {
+        $method = $this->config('method') ? : $method ;
         $header = $this->request->headers->get($header);
 
         if (! starts_with(strtolower($header), $method)) {
